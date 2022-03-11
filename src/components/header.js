@@ -43,7 +43,7 @@ const headerAppender = (selector) => {
   //
   const entryPoint = document.querySelector(selector);
 
-  const headerCard = Header('Title is Here', 'July 27', '78 degrees');
+  const headerCard = Header('Man Eats Way Too Much Ice Cream', 'July 27', '78 degrees');
   entryPoint.appendChild(headerCard)
 }
 
