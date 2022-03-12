@@ -2,7 +2,6 @@ import axios from 'axios';
 
 
 
-const topicsD = document.createElement('div');
 const Tabs = (topics) => {
   // TASK 3
   // ---------------------
@@ -19,24 +18,33 @@ const Tabs = (topics) => {
   // </div>
   //
   
+const topic = document.createElement('div');
   const tab = document.createElement('div');
-  // const tab1 = document.createElement('div');
-  // const tab2 = document.createElement('div');
+  const tab1 = document.createElement('div');
+  const tab2 = document.createElement('div');
+  const tab3 = document.createElement('div');
+  const tab4 = document.createElement('div');
 
-  topicsD.classList.add('topics');
+  topic.classList.add('topics');
   tab.classList.add('tab');
-  // tab1.classList.add('tab');
-  // tab2.classList.add('tab');
+  tab1.classList.add('tab');
+  tab2.classList.add('tab');
+  tab3.classList.add('tab');
+  tab4.classList.add('tab');
 
-  tab.textContent = topics;
-  // tab1.textContent = topics;
-  // tab2.textContent = topics;
+  tab.textContent = topics[0];
+  tab1.textContent = topics[1];
+  tab2.textContent = topics[2];
+  tab3.textContent = topics[3];
+  tab4.textContent = topics[4];
 
-  topicsD.appendChild(tab);
-  // topicsD.appendChild(tab1);
-  // topicsD.appendChild(tab2);
+  topic.appendChild(tab);
+  topic.appendChild(tab1);
+  topic.appendChild(tab2);
+  topic.appendChild(tab3);
+  topic.appendChild(tab4);
 
-  return topicsD
+  return topic
 }
 
 
@@ -52,19 +60,15 @@ const tabsAppender = (selector) => {
 
   const entryPoint = document.querySelector(selector);
   axios.get("http://localhost:5000/api/topics")
+
   .then(res => {
     console.log(res.data.topics);
-    res.data.topics.forEach(element => {
-      const tabsCard = Tabs(element);
+      const tabsCard = Tabs(res.data.topics);
       entryPoint.appendChild(tabsCard);
-    });
   })
   .catch(err => {
     console.error(err);
   })
-  
-  
-
 
 }
 

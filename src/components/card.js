@@ -56,19 +56,71 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-
   const entryPoint = document.querySelector(selector);
   axios.get("http://localhost:5000/api/articles")
   .then(res => {
-    console.log(res);
-    res.data.articles.forEach(element => {
-      const artCard = Card(element.headline, element.authorName, element.authorPhoto);
-      entryPoint.appendChild(artCard);
+    console.log(res.data.articles.bootstrap);
+      res.data.articles.bootstrap.forEach(article => {
+        const bootCard = Card({headline: article.headline, authorName: article.authorName, authorPhoto: article.authorPhoto});
+        entryPoint.appendChild(bootCard);
+      });
+      res.data.articles.javascript.forEach(article => {
+        const bootCard = Card({headline: article.headline, authorName: article.authorName, authorPhoto: article.authorPhoto});
+        entryPoint.appendChild(bootCard);
+      });
+      res.data.articles.jquery.forEach(article => {
+        const bootCard = Card({headline: article.headline, authorName: article.authorName, authorPhoto: article.authorPhoto});
+        entryPoint.appendChild(bootCard);
+      });
+      res.data.articles.node.forEach(article => {
+        const bootCard = Card({headline: article.headline, authorName: article.authorName, authorPhoto: article.authorPhoto});
+        entryPoint.appendChild(bootCard);
+      });
+      res.data.articles.technology.forEach(article => {
+        const bootCard = Card({headline: article.headline, authorName: article.authorName, authorPhoto: article.authorPhoto});
+        entryPoint.appendChild(bootCard);
     });
-  })
-  .catch(err => {
-    console.error(err);
-  })
+  
+  });
 }
 
 export { Card, cardAppender }
+
+
+
+
+
+
+
+
+
+
+// const newArray = []
+//   const entryPoint = document.querySelector(selector);
+//   axios.get("http://localhost:5000/api/articles")
+//   .then(res => {
+//     console.log(res.data.articles);
+//     res.data.articles.bootstrap[0].forEach(element => {
+//         const artCard = Card(element.headline, element.authorName, element.authorPhoto);
+//         entryPoint.appendChild(artCard);
+//       });
+//     res.data.articles.javascript.forEach(element => {
+//         const artCard = Card(element.headline, element.authorName, element.authorPhoto);
+//         entryPoint.appendChild(artCard);
+//       });
+//     res.data.articles.jquery.forEach(element => {
+//       const artCard = Card(element.headline, element.authorName, element.authorPhoto);
+//       entryPoint.appendChild(artCard);
+//       });
+//     res.data.articles.node.forEach(element => {
+//       const artCard = Card(element.headline, element.authorName, element.authorPhoto);
+//       entryPoint.appendChild(artCard);
+//       });
+//     res.data.articles.technology.forEach(element => {
+//       const artCard = Card(element.headline, element.authorName, element.authorPhoto);
+//       entryPoint.appendChild(artCard);
+//     });
+//   })
+//   .catch(err => {
+//     console.error(err);
+//   })
