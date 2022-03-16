@@ -42,10 +42,19 @@ const Card = (article) => {
   author.appendChild(span);
   imgCon.appendChild(img);
 
+
+  function HLLog () {
+    console.log(headlineElm.textContent)
+  }
+  
+  card.addEventListener('click', HLLog)
+
   return card;
 
 
 }
+
+
 
 const cardAppender = (selector) => {
   // TASK 6
@@ -84,12 +93,39 @@ const cardAppender = (selector) => {
   });
 }
 
+
+
 export { Card, cardAppender }
 
 
 
 
+// const entryPoint = document.querySelector(selector);
+// axios.get("http://localhost:5000/api/articles")
+// .then(res => {
+//   console.log(res.data.articles.bootstrap);
+//     res.data.articles.bootstrap.forEach(article => {
+//       const bootCard = Card(article);
+//       entryPoint.appendChild(bootCard);
+//     });
+//     res.data.articles.javascript.forEach(article => {
+//       const bootCard = Card(article);
+//       entryPoint.appendChild(bootCard);
+//     });
+//     res.data.articles.jquery.forEach(article => {
+//       const bootCard = Card(article);
+//       entryPoint.appendChild(bootCard);
+//     });
+//     res.data.articles.node.forEach(article => {
+//       const bootCard = Card(article);
+//       entryPoint.appendChild(bootCard);
+//     });
+//     res.data.articles.technology.forEach(article => {
+//       const bootCard = Card(article);
+//       entryPoint.appendChild(bootCard);
+//   });
 
+// });
 
 
 

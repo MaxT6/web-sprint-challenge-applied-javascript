@@ -18,7 +18,7 @@ const Tabs = (topics) => {
   // </div>
   //
   
-const topic = document.createElement('div');
+  const topic = document.createElement('div');
   const tab = document.createElement('div');
   const tab1 = document.createElement('div');
   const tab2 = document.createElement('div');
@@ -60,7 +60,7 @@ const tabsAppender = (selector) => {
 
   const entryPoint = document.querySelector(selector);
   axios.get("http://localhost:5000/api/topics")
-
+  
   .then(res => {
     console.log(res.data.topics);
       const tabsCard = Tabs(res.data.topics);
@@ -73,3 +73,8 @@ const tabsAppender = (selector) => {
 }
 
 export { Tabs, tabsAppender }
+
+
+
+
+
